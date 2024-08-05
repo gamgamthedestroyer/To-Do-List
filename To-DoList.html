@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
     <style>
-        body {
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -29,14 +29,25 @@
 
 .top-bar {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     padding-bottom: 20px;
 }
 
+.top-bar h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.top-bar .button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .button {
     padding: 10px 20px;
-    margin: 10px;
+    margin: 5px;
     cursor: pointer;
     border: 1px solid;
     border-radius: 5px;
@@ -200,7 +211,7 @@
 }
 
 .scrollable {
-    max-height: calc(100vh - 80px); /* Adjust based on footer height */
+    max-height: calc(100vh - 60px); /* Adjust based on footer height */
     overflow-y: auto;
     padding-bottom: 60px; /* Ensure there's space for the footer */
 }
@@ -214,18 +225,75 @@
 
 .priority-high {
     background-color: #d9534f;
+    color: #ffffff;
 }
 
 .priority-medium {
     background-color: #f0ad4e;
+    color: #ffffff;
 }
 
 .priority-low {
     background-color: #5bc0de;
+    color: #ffffff;
 }
 
 .priority-none {
     background-color: #e0e0e0;
+    color: #000000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .top-bar {
+        flex-direction: column;
+    }
+
+    .top-bar h1 {
+        font-size: 1.2em;
+    }
+
+    .top-bar .button-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .button {
+        margin: 5px 0;
+        width: 100%;
+    }
+
+    .task-bubble {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .task-bubble {
+        padding: 5px;
+    }
+
+    .task {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .task input[type="text"] {
+        font-size: 0.9em;
+    }
+
+    .search-bar input {
+        font-size: 0.9em;
+    }
+
+    .button {
+        padding: 8px;
+        font-size: 0.9em;
+    }
 }
 
     </style>
