@@ -343,3 +343,28 @@
         function saveTodos() {
             localStorage.setItem('todos', JSON.stringify(todos));
         }
+
+        // Event Listeners
+        addTodoButton.addEventListener('click', addTodo);
+        newTodoInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                addTodo();
+            }
+        });
+
+        todoTitleElement.addEventListener('input', () => {
+            document.title = todoTitleElement.textContent + " - My To-Do List";
+        });
+
+        todoTitleElement.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                todoTitleElement.blur();
+            }
+        });
+
+        // Initial render
+        renderTodoList();
+    </script>
+</body>
+</html>
